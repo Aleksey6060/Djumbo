@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Удалить службу доставки{% endblock %}
+{% block content %}
+<h1>Удалить службу доставки "{{ delivery.name }}"</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Удалить</button>
+</form>
+<a href="{% url 'delivery_list' %}" class="btn btn-secondary">Вернуться к списку служб доставки</a>
+{% endblock %}

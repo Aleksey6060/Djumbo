@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Список поставщиков{% endblock %}
+{% block content %}
+<h1>Поставщики</h1>
+<a href="{% url 'supplier_create' %}">Добавить поставщика</a>
+<ul>
+    {% for supplier in suppliers %}
+    <li>
+        <a href="{% url 'supplier_detail' supplier.pk %}">{{ supplier.name }}</a>
+        <a href="{% url 'supplier_update' supplier.pk %}">Редактировать</a>
+        <a href="{% url 'supplier_delete' supplier.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Поставщиков пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'home' %}">Вернуться на главную</a>
+{% endblock %}

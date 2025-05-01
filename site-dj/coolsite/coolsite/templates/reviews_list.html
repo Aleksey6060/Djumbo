@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Список отзывов{% endblock %}
+{% block content %}
+<h1>Отзывы</h1>
+<a href="{% url 'review_create' %}">Добавить отзыв</a>
+<ul>
+    {% for review in reviews %}
+    <li>
+        <a href="{% url 'review_detail' review.pk %}">{{ review.flower.name }} - {{ review.customer_name }} (Оценка: {{ review.rating }})</a>
+        <a href="{% url 'review_update' review.pk %}">Редактировать</a>
+        <a href="{% url 'review_delete' review.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Отзывов пока нет.</li>
+    {% endfor %}
+</ul>
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+    {% endif %}
+    <span>Страница {{ page_obj.number }} из {{ paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<a href="{% url 'home' %}">Вернуться на главную</a>
+{% endblock %}

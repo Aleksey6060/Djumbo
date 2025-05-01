@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}{{ employee.name }}{% endblock %}
+{% block content %}
+<h1>{{ employee.name }}</h1>
+<p>Должность: {{ employee.position }}</p>
+<p>Магазин: {{ employee.shop.name }}</p>
+<a href="{% url 'employee_list' %}">Вернуться к списку сотрудников</a>
+<a href="{% url 'employee_update' employee.pk %}">Редактировать</a>
+<a href="{% url 'employee_delete' employee.pk %}">Удалить</a>
+{% endblock %}

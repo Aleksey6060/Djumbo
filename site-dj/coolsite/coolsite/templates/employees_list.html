@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Список сотрудников{% endblock %}
+{% block content %}
+<h1>Сотрудники</h1>
+<a href="{% url 'employee_create' %}">Добавить сотрудника</a>
+<ul>
+    {% for employee in employees %}
+    <li>
+        <a href="{% url 'employee_detail' employee.pk %}">{{ employee.name }}</a>
+        <a href="{% url 'employee_update' employee.pk %}">Редактировать</a>
+        <a href="{% url 'employee_delete' employee.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Сотрудников пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'home' %}">Вернуться на главную</a>
+{% endblock %}

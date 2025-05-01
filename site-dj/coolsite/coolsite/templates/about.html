@@ -1,129 +1,17 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #444;
-            overflow: hidden;
-        }
-        nav .container {
-            position: relative;
-        }
-        nav a {
-            display: inline-block;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .dropdown {
-            display: inline-block;
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #444;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            display: block;
-            padding: 1rem;
-            text-align: left;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        main {
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        section h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-            color: #333;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        footer p {
-            margin: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>О компании</h1>
-        </div>
-    </header>
-     <nav>
-        <div class="container">
-            <a href="{% url 'home' %}">Главная</a>
-            <a href="{% url 'about' %}">О компании</a>
-
-                <a href="{% url 'contact' %}">Контакты</a>
-                <a href="{% url 'how_to_find' %}">Как нас найти</a>
-
-            <a href="{% url 'categories' %}">Товары</a>
-
-                <a href="{% url 'categories' %}">Категории</a>
-                <a href="{% url 'all_products' %}">Все товары</a>
-
-            <a href="{% url 'cart' %}">Корзина</a>
-        </div>
-    </nav>
-    <main>
-        <div class="container">
-            <section>
-                <h2>Информация о нас</h2>
-                <p>На этой странице вы можете узнать больше о нашей компании, нашей миссии, ценностях и истории.</p>
-            </section>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Мой Сайт. Все права защищены.</p>
-        </div>
-    </footer>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937e68ecea10b094',t:'MTc0NTkyNTYyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}О нас{% endblock %}
+{% block content %}
+<div class="banner">
+    <h1>О нас</h1>
+    <p>Цветочная радость — ваш проводник в мир красоты и ароматов!</p>
+</div>
+<div class="card">
+    <h3>Наша история</h3>
+    <p>Мы — цветочный магазин "Цветочная радость", который с 2015 года радует клиентов свежими цветами и оригинальными букетами.</p>
+</div>
+<div class="card">
+    <h3>Наша миссия</h3>
+    <p>Приносить радость через красоту природы, создавая букеты, которые дарят эмоции!</p>
+</div>
+<a href="{% url 'home' %}" class="btn btn-cta">Вернуться на главную</a>
+{% endblock %}

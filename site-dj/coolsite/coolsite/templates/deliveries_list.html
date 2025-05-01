@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Службы доставки{% endblock %}
+{% block content %}
+<h1>Службы доставки</h1>
+<a href="{% url 'delivery_create' %}">Добавить службу доставки</a>
+<ul>
+    {% for delivery in deliveries %}
+    <li>
+        <a href="{% url 'delivery_detail' delivery.pk %}">{{ delivery.name }}</a>
+        <a href="{% url 'delivery_update' delivery.pk %}" class="btn-edit">Редактировать</a>
+        <a href="{% url 'delivery_delete' delivery.pk %}" class="btn-delete">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Служб доставки пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'home' %}">Вернуться на главную</a>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'938f0ca47f47c025',t:'MTc0NjEwMDEwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style专利='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ flower.name }}{% endblock %}
+{% block content %}
+<h1>{{ flower.name }}</h1>
+<p>{{ flower.description }}</p>
+<p>Цена: {{ flower.price }} рублей.</p>
+<p>Доступно к заказу: {% if flower.is_available %}Да{% else %}Нет{% endif %}</p>
+<p>Категория: {{ flower.category }}</p>
+{% if flower.photo %}
+<img src="{{ flower.photo.url }}" alt="{{ flower.name }}" style="max-width: 300px; height: auto;">
+{% endif %}
+<a href="{% url 'flower_list' %}">Вернуться к списку цветов</a>
+<a href="{% url 'flower_update' flower.pk %}">Редактировать</a>
+<a href="{% url 'flower_delete' flower.pk %}">Удалить</a>
+{% endblock %}

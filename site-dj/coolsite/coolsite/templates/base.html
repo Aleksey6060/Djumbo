@@ -1,0 +1,41 @@
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Цветочный магазин{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Лох цветочный</h1>
+    </header>
+    <nav>
+        <div class="main-nav">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'about' %}">О компании</a>
+            <a href="{% url 'contact' %}">Контакты</a>
+
+            <a href="{% url 'all_products' %}">Все товары</a>
+        </div>
+        <div class="admin-nav">
+            <h3>Управление</h3>
+            <a href="{% url 'flower_list' %}">Цветы</a>
+            <a href="{% url 'supplier_list' %}">Поставщики</a>
+            <a href="{% url 'delivery_list' %}">Доставка</a>
+            <a href="{% url 'review_list' %}">Отзывы</a>
+            <a href="{% url 'promotion_list' %}">Акции</a>
+            <a href="{% url 'shop_list' %}">Магазины</a>
+            <a href="{% url 'employee_list' %}">Сотрудники</a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Цветочный магазин. Все права защищены.</p>
+    </footer>
+</body>
+</html>

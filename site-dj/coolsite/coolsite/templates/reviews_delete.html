@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Удалить отзыв{% endblock %}
+{% block content %}
+<h1>Удалить отзыв на "{{ review.flower.name }}"</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+<a href="{% url 'review_list' %}">Вернуться к списку отзывов</a>
+{% endblock %}

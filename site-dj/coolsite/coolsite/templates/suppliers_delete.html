@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Удалить поставщика{% endblock %}
+{% block content %}
+<h1>Удалить поставщика "{{ supplier.name }}"</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+<a href="{% url 'supplier_list' %}">Вернуться к списку поставщиков</a>
+{% endblock %}

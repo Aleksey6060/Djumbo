@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{% if form.instance.pk %}Редактировать поставщика{% else %}Добавить поставщика{% endif %}{% endblock %}
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать поставщика{% else %}Добавить нового поставщика{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'supplier_list' %}">Вернуться к списку поставщиков</a>
+{% endblock %}

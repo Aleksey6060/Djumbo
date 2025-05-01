@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Список магазинов{% endblock %}
+{% block content %}
+<h1>Магазины</h1>
+<a href="{% url 'shop_create' %}">Добавить магазин</a>
+<ul>
+    {% for shop in shops %}
+    <li>
+        <a href="{% url 'shop_detail' shop.pk %}">{{ shop.name }}</a>
+        <a href="{% url 'shop_update' shop.pk %}">Редактировать</a>
+        <a href="{% url 'shop_delete' shop.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Магазинов пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'home' %}">Вернуться на главную</a>
+{% endblock %}
