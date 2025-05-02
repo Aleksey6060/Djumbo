@@ -1,0 +1,22 @@
+<header>
+    <h1>Лох цветочный</h1>
+</header>
+<nav>
+    <div class="main-nav">
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'about' %}">О компании</a>
+        <a href="{% url 'contact' %}">Контакты</a>
+        <a href="{% url 'all_products' %}">Все товары</a>
+    </div>
+    <div class="admin-nav">
+        <h3>Управление</h3>
+        <a href="{% url 'category_list' %}">Категории</a>
+        <a href="{% url 'flower_list' %}">Цветы</a>
+        <a href="{% url 'supplier_list' %}">Поставщики</a>
+        <a href="{% url 'delivery_list' %}">Доставка</a>
+        <a href="{% url 'review_list' %}">Отзывы</a>
+        <a href="{% url 'promotion_list' %}">Акции</a>
+        <a href="{% url 'shop_list' %}">Магазины</a>
+        <a href="{% url 'employee_list' %}">Сотрудники</a>
+    </div>
+</nav>
