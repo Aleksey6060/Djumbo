@@ -15,6 +15,14 @@ urlpatterns = [
     path('flowers/create/', FlowerCreateView.as_view(), name='flower_create'),
     path('flowers/<int:pk>/update/', FlowerUpdateView.as_view(), name='flower_update'),
     path('flowers/<int:pk>/delete/', FlowerDeleteView.as_view(), name='flower_delete'),
+    # Flowers by Category
+    path('flowers/category/<int:category_id>/', views.flowers_by_category, name='flowers_by_category'),
+    # Category URLs
+    path('category/', views.CategoryListView.as_view(), name='category_list'),
+    path('category/<int:pk>/', views.CategoryDetailView.as_view(), name='category_detail'),
+    path('category/create/', views.CategoryCreateView.as_view(), name='category_create'),
+    path('category/<int:pk>/update/', views.CategoryUpdateView.as_view(), name='category_update'),
+    path('category/<int:pk>/delete/', views.CategoryDeleteView.as_view(), name='category_delete'),
     # Supplier URLs
     path('suppliers/', SupplierListView.as_view(), name='supplier_list'),
     path('suppliers/<int:pk>/', SupplierDetailView.as_view(), name='supplier_detail'),
@@ -45,11 +53,10 @@ urlpatterns = [
     path('shops/create/', views.ShopCreateView.as_view(), name='shop_create'),
     path('shops/<int:pk>/update/', views.ShopUpdateView.as_view(), name='shop_update'),
     path('shops/<int:pk>/delete/', views.ShopDeleteView.as_view(), name='shop_delete'),
-# Employee URLs (новые маршруты)
+    # Employee URLs
     path('employees/', views.EmployeeListView.as_view(), name='employee_list'),
     path('employees/<int:pk>/', views.EmployeeDetailView.as_view(), name='employee_detail'),
     path('employees/create/', views.EmployeeCreateView.as_view(), name='employee_create'),
     path('employees/<int:pk>/update/', views.EmployeeUpdateView.as_view(), name='employee_update'),
     path('employees/<int:pk>/delete/', views.EmployeeDeleteView.as_view(), name='employee_delete'),
-
 ]

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Flower, Supplier, Delivery, Review, Promotion
+from .models import Flower, Supplier, Delivery, Review, Promotion, Category
 
 class FlowerForm(forms.ModelForm):
     class Meta:
@@ -25,3 +25,12 @@ class PromotionForm(forms.ModelForm):
     class Meta:
         model = Promotion
         fields = ['title', 'description', 'discount', 'start_date', 'end_date', 'banner']
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name', 'description']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+        }

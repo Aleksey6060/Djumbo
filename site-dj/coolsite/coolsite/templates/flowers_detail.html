@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}{{ flower.name }}{% endblock %}
 {% block content %}
-<h1>{{ flower.name }}</h1>
-<p>{{ flower.description }}</p>
-<p>Цена: {{ flower.price }} рублей.</p>
-<p>Доступно к заказу: {% if flower.is_available %}Да{% else %}Нет{% endif %}</p>
-<p>Категория: {{ flower.category }}</p>
-{% if flower.photo %}
-<img src="{{ flower.photo.url }}" alt="{{ flower.name }}" style="max-width: 300px; height: auto;">
-{% endif %}
-<a href="{% url 'flower_list' %}">Вернуться к списку цветов</a>
-<a href="{% url 'flower_update' flower.pk %}">Редактировать</a>
-<a href="{% url 'flower_delete' flower.pk %}">Удалить</a>
+<div class="banner">
+    <h1>{{ flower.name }}</h1>
+</div>
+<div class="card detail-page">
+    {% if flower.photo %}
+    <img src="{{ flower.photo.url }}" alt="{{ flower.name }}" class="flower-image">
+    {% endif %}
+    <p><strong>Описание:</strong> {{ flower.description|default:"Нет описания" }}</p>
+    <p><strong>Цена:</strong> {{ flower.price }} рублей</p>
+    <p><strong>Доступно к заказу:</strong> {% if flower.is_available %}Да{% else %}Нет{% endif %}</p>
+    <p><strong>Категория:</strong> <a href="{% url 'flowers_by_category' flower.category.id %}">{{ flower.category.name }}</a></p>
+    <p><strong>Дата добавления:</strong> {{ flower.created_at|date:"d.m.Y" }}</p>
+</div>
+<div class="actions">
+    <a href="{% url 'flower_list' %}" class="btn btn-secondary">Вернуться к списку цветов</a>
+    <a href="{% url 'flower_update' flower.pk %}" class="btn btn-edit">Редактировать</a>
+    <a href="{% url 'flower_delete' flower.pk %}" class="btn btn-danger">Удалить</a>
+</div>
 {% endblock %}
